@@ -1,0 +1,45 @@
+# Goal
+# Stores the data for all the vehicles
+# (both the ego and agent vehicles) with the policy speed included.
+std_msgs/Header header
+float64 simulation_time
+conformal_lattice_planner/TrafficSnapshot snapshot
+# Leading vehicles.
+conformal_lattice_planner/Vehicle front_leader
+float64 front_distance
+conformal_lattice_planner/Vehicle left_front_leader
+float64 left_front_distance
+conformal_lattice_planner/Vehicle right_front_leader
+float64 right_front_distance
+# Following vehicles.
+conformal_lattice_planner/Vehicle back_follower
+float64 back_distance
+conformal_lattice_planner/Vehicle left_back_follower
+float64 left_back_distance
+conformal_lattice_planner/Vehicle right_back_follower
+float64 right_back_distance
+
+#conformal_lattice_planner/Vehicle leader
+#float64 leading_distance
+#conformal_lattice_planner/Vehicle follower
+#float64 following_distance
+---
+# Result
+uint8 LANE_KEEP = 0
+uint8 LEFT_LANE_CHANGE = 1
+uint8 RIGHT_LANE_CHANGE = 2
+uint8 UNKNOWN = 3
+
+std_msgs/Header header
+bool success
+# The type of action
+int8 path_type
+# The new desired state of the ego.
+conformal_lattice_planner/Vehicle ego
+# Planning time.
+float64 planning_time
+---
+# Feedback
+# TODO: what could a meaningful feedback?
+std_msgs/Header header
+

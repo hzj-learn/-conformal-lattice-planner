@@ -1,0 +1,19 @@
+<launch>
+  <arg name="host" default="localhost"/>
+  <arg name="port" default="2000"/>
+  <arg name="fixed_delta_seconds" default="0.05"/>
+
+  <group ns="carla">
+    <node pkg="conformal_lattice_planner"
+      type="agents_lane_following_node"
+      name="agents_lane_following_planner"
+      output="log"
+      required="true">
+      <param name="host" value="$(arg host)"/>
+      <param name="port" value="$(arg port)"/>
+      <param name="fixed_delta_seconds" value="$(arg fixed_delta_seconds)"/>
+
+      <remap from="~agents_plan" to="carla_simulator/agents_plan"/>
+    </node>
+  </group>
+</launch>

@@ -1,0 +1,17 @@
+# Goal
+# Stores the data for all the vehicles
+# (both the ego and agent vehicles) with the policy speed included.
+std_msgs/Header header
+float64 simulation_time
+conformal_lattice_planner/TrafficSnapshot snapshot
+---
+# Result
+std_msgs/Header header
+bool success
+# The new desired states for all agents in the snapshot.
+conformal_lattice_planner/Vehicle[] agents
+---
+# Feedback
+# TODO: what could a meaningful feedback?
+std_msgs/Header header
+
